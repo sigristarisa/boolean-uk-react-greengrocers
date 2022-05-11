@@ -3,13 +3,26 @@ import './styles/index.css'
 import { useState } from 'react'
 import Header from './Header/Header'
 import Main from './Main/Main'
-
-import storeItems from './store-items'
+import Footer from './Footer/Footer'
+import initialStoreItems from './store-items'
 
 const App = () => {
   const [cart, setCart] = useState([])
+  const [storeItems, setStoreItems] = useState(initialStoreItems)
 
-  const findItemById = storeItem => cart.find(item => item.id === storeItem.id)
+  const findItemById = storeItem =>
+    cart.find(cartItem => cartItem.id === storeItem.id)
+
+  const filterStoreItems = type => {
+    if (type === 'all') {
+      setStoreItems(initialStoreItems)
+    } else {
+      const filteredItems = initialStoreItems.filter(
+        storeItem => storeItem.type === type
+      )
+      setStoreItems(filteredItems)
+    }
+  }
 
   const addItemToCart = storeItem => {
     if (!findItemById(storeItem)) {
@@ -44,26 +57,18 @@ const App = () => {
 
   return (
     <div className="app">
-      <Header storeItems={storeItems} addItemToCart={addItemToCart} />
+      <Header
+        storeItems={storeItems}
+        addItemToCart={addItemToCart}
+        filterStoreItems={filterStoreItems}
+      />
       <Main
         cart={cart}
         incrementQuantity={incrementQuantity}
         decrementQuantity={decrementQuantity}
         getTotal={getTotal}
       />
-      <div>
-        Icons made by
-        <a
-          href="https://www.flaticon.com/authors/icongeek26"
-          title="Icongeek26"
-        >
-          Icongeek26
-        </a>
-        from
-        <a href="https://www.flaticon.com/" title="Flaticon">
-          www.flaticon.com
-        </a>
-      </div>
+      <Footer />
     </div>
   )
 }
