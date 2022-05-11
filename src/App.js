@@ -56,7 +56,7 @@ const App = () => {
   }
 
   const sortStoreItems = method => {
-    const copiedStoreItems = [...initialStoreItems]
+    const copiedStoreItems = [...storeItems]
     if (method === 'lowToHigh') {
       copiedStoreItems.sort((storeItem1, storeItem2) => {
         return storeItem1.price - storeItem2.price
