@@ -13,17 +13,6 @@ const App = () => {
   const findItemById = storeItem =>
     cart.find(cartItem => cartItem.id === storeItem.id)
 
-  const filterStoreItems = type => {
-    if (type === 'all') {
-      setStoreItems(initialStoreItems)
-    } else {
-      const filteredItems = initialStoreItems.filter(
-        storeItem => storeItem.type === type
-      )
-      setStoreItems(filteredItems)
-    }
-  }
-
   const addItemToCart = storeItem => {
     if (!findItemById(storeItem)) {
       const addedItem = { ...storeItem, quantity: 1 }
@@ -53,6 +42,17 @@ const App = () => {
       return price1 + price2
     }, 0)
     return parseFloat(total).toFixed(2)
+  }
+
+  const filterStoreItems = type => {
+    if (type === 'all') {
+      setStoreItems(initialStoreItems)
+    } else {
+      const filteredItems = initialStoreItems.filter(
+        storeItem => storeItem.type === type
+      )
+      setStoreItems(filteredItems)
+    }
   }
 
   return (
