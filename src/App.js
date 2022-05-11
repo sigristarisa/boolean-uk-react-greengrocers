@@ -34,6 +34,14 @@ const App = () => {
     }
   }
 
+  const getTotal = () => {
+    const cartItemPriceArr = cart.map(item => item.price * item.quantity)
+    const total = cartItemPriceArr.reduce((price1, price2) => {
+      return price1 + price2
+    }, 0)
+    return parseFloat(total).toFixed(2)
+  }
+
   return (
     <div className="app">
       <Header storeItems={storeItems} addItemToCart={addItemToCart} />
@@ -41,6 +49,7 @@ const App = () => {
         cart={cart}
         incrementQuantity={incrementQuantity}
         decrementQuantity={decrementQuantity}
+        getTotal={getTotal}
       />
       <div>
         Icons made by
