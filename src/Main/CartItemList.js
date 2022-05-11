@@ -2,7 +2,8 @@ import CartItem from './CartItem'
 
 const CartItemList = props => {
   const cart = props.cart
-  const handleQuantity = props.handleQuantity
+  const incrementQuantity = props.incrementQuantity
+  const decrementQuantity = props.decrementQuantity
 
   return (
     <div className="cart--item-list-container">
@@ -11,7 +12,8 @@ const CartItemList = props => {
           <CartItem
             key={index}
             cartItem={cartItem}
-            handleQuantity={handleQuantity}
+            incrementQuantity={incrementQuantity}
+            decrementQuantity={decrementQuantity}
           />
         ))}
       </ul>

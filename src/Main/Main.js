@@ -2,12 +2,17 @@ import CartItemList from './CartItemList'
 
 const Main = props => {
   const cart = props.cart
-  const handleQuantity = props.handleQuantity
+  const incrementQuantity = props.incrementQuantity
+  const decrementQuantity = props.decrementQuantity
 
   return (
     <main id="cart">
       <h2>Your Cart</h2>
-      <CartItemList cart={cart} handleQuantity={handleQuantity} />
+      <CartItemList
+        cart={cart}
+        incrementQuantity={incrementQuantity}
+        decrementQuantity={decrementQuantity}
+      />
       <div className="total-section">
         <div>
           <h3>Total</h3>

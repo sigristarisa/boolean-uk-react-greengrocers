@@ -9,21 +9,39 @@ import storeItems from './store-items'
 const App = () => {
   const [cart, setCart] = useState([])
 
+  const findItemById = storeItem => cart.find(item => item.id === storeItem.id)
+
   const addItemToCart = storeItem => {
-    const addedItem = { storeItem, quantity: 1 }
-    setCart([...cart, addedItem])
+    if (!findItemById(storeItem)) {
+      const addedItem = { ...storeItem, quantity: 1 }
+      setCart([...cart, addedItem])
+    }
   }
 
-  const handleQuantity = (method, cartItem) => {
-    if (method === '+') cartItem.quantity += 1
-    if (method === '-') cartItem.quantity -= 1
+  const incrementQuantity = cartItem => {
+    cartItem.quantity += 1
     setCart([...cart])
+  }
+
+  const decrementQuantity = cartItem => {
+    if (cartItem.quantity > 0) {
+      cartItem.quantity -= 1
+      setCart([...cart])
+    }
+    if (cartItem.quantity === 0) {
+      const updatedCart = cart.filter(item => item !== cartItem)
+      setCart(updatedCart)
+    }
   }
 
   return (
     <div className="app">
       <Header storeItems={storeItems} addItemToCart={addItemToCart} />
-      <Main cart={cart} handleQuantity={handleQuantity} />
+      <Main
+        cart={cart}
+        incrementQuantity={incrementQuantity}
+        decrementQuantity={decrementQuantity}
+      />
       <div>
         Icons made by
         <a
