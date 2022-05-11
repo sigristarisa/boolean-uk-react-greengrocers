@@ -1,5 +1,7 @@
 import './styles/reset.css'
 import './styles/index.css'
+import { useState } from 'react'
+import Header from './Header/Header'
 
 import initialStoreItems from './store-items'
 
@@ -13,20 +15,12 @@ Here's what a store item should look like
 
 What should a cart item look like? 🤔
 */
-
-console.log(initialStoreItems)
-
-export default function App() {
-  // Setup state here...
+const App = () => {
+  const [storeItems, setStoreItems] = useState(initialStoreItems)
 
   return (
-    <>
-      <header id="store">
-        <h1>Greengrocers</h1>
-        <ul className="item-list store--item-list">
-          {/* Wrtite some code here... */}
-        </ul>
-      </header>
+    <div className="app">
+      <Header storeItems={storeItems} />
       <main id="cart">
         <h2>Your Cart</h2>
         <div className="cart--item-list-container">
@@ -56,6 +50,8 @@ export default function App() {
           www.flaticon.com
         </a>
       </div>
-    </>
+    </div>
   )
 }
+
+export default App
