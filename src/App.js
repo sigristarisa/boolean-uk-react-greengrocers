@@ -55,12 +55,33 @@ const App = () => {
     }
   }
 
+  const sortStoreItems = method => {
+    const copiedStoreItems = [...initialStoreItems]
+    if (method === 'lowToHigh') {
+      copiedStoreItems.sort((storeItem1, storeItem2) => {
+        return storeItem1.price - storeItem2.price
+      })
+    }
+    if (method === 'highToLow') {
+      copiedStoreItems.sort((storeItem1, storeItem2) => {
+        return storeItem2.price - storeItem1.price
+      })
+    }
+    if (method === 'name') {
+      copiedStoreItems.sort((storeItem1, storeItem2) => {
+        return storeItem1.name.localeCompare(storeItem2.name)
+      })
+    }
+    setStoreItems(copiedStoreItems)
+  }
+
   return (
     <div className="app">
       <Header
         storeItems={storeItems}
         addItemToCart={addItemToCart}
         filterStoreItems={filterStoreItems}
+        sortStoreItems={sortStoreItems}
       />
       <Main
         cart={cart}
