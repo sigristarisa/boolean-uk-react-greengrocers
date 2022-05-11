@@ -2,11 +2,12 @@ import StoreItem from './StoreItem'
 
 const StoreItemList = props => {
   const storeItems = props.storeItems
+  console.log(storeItems)
   return (
     <ul className="item-list store--item-list">
-      {storeItems.map((storeItem, index) => {
-        ;<StoreItem key={index} storeItem={storeItem} />
-      })}
+      {storeItems.map((storeItem, index) => (
+        <StoreItem key={index} storeItem={storeItem} />
+      ))}
     </ul>
   )
 }
