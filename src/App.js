@@ -9,12 +9,21 @@ import storeItems from './store-items'
 const App = () => {
   const [cart, setCart] = useState([])
 
-  const addItemToCart = storeItem => setCart([...cart, storeItem])
+  const addItemToCart = storeItem => {
+    const addedItem = { storeItem, quantity: 1 }
+    setCart([...cart, addedItem])
+  }
+
+  const handleQuantity = (method, cartItem) => {
+    if (method === '+') cartItem.quantity += 1
+    if (method === '-') cartItem.quantity -= 1
+    setCart([...cart])
+  }
 
   return (
     <div className="app">
       <Header storeItems={storeItems} addItemToCart={addItemToCart} />
-      <Main cart={cart} />
+      <Main cart={cart} handleQuantity={handleQuantity} />
       <div>
         Icons made by
         <a
