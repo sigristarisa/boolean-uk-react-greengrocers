@@ -1,6 +1,7 @@
 import StoreItemList from './StoreItemList'
 import FilterBy from './FilterBy'
 import SortBy from './SortBy'
+import './Header.css'
 
 const Header = props => {
   const storeItems = props.storeItems

@@ -1,5 +1,6 @@
 import CartItemList from './CartItemList'
 import TotalSection from './TotalSection'
+import './Main.css'
 
 const Main = props => {
   const cart = props.cart
