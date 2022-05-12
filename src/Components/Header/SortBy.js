@@ -7,7 +7,7 @@ const SortBy = props => {
         Sort By
       </label>
       <select id="sort-by" onChange={e => sortStoreItems(e.target.value)}>
-        <option value="lowToHigh'">Low to High</option>
+        <option value="lowToHigh">Low to High</option>
         <option value="highToLow">High to Low</option>
         <option value="name">Name</option>
       </select>
