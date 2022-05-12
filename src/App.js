@@ -1,9 +1,9 @@
 import './styles/reset.css'
 import './styles/index.css'
 import { useState } from 'react'
-import Header from './Header/Header'
-import Main from './Main/Main'
-import Footer from './Footer/Footer'
+import Header from './Components/Header/Header'
+import Main from './Components/Main/Main'
+import Footer from './Components/Footer/Footer'
 import initialStoreItems from './store-items'
 
 const App = () => {

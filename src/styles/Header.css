@@ -29,6 +29,15 @@
   height: 125px;
 }
 
+.option-wrapper {
+  display: grid;
+  max-width: 50%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  grid-template-columns: repeat(2, 1fr);
+  place-items: center;
+}
+
 @media only screen and (max-width: 600px) {
   .store--item-list {
     grid-template-columns: repeat(3, 125px);

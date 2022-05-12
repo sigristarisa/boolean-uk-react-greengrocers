@@ -1,7 +1,5 @@
 @import './reset.css';
 
-/* Typography */
-
 body {
   font-family: 'Trebuchet MS', 'Lucida Sans', Arial, sans-serif;
 }
@@ -10,8 +8,6 @@ h1,
 h2 {
   margin-bottom: 1rem;
 }
-
-/* Buttons */
 
 button {
   padding: 0.25rem 0.5rem;
