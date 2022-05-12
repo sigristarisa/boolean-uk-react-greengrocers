@@ -107,3 +107,8 @@
     border-bottom: 2px solid #00675b;
   }
 }
+
+.fun-facts {
+  width: 70vw;
+  padding: 1rem;
+}

@@ -1,5 +1,6 @@
 import CartItemList from './CartItemList'
 import TotalSection from './TotalSection'
+import FunFacts from './FunFacts'
 import '../../styles/Main.css'
 
 const Main = props => {
@@ -14,11 +15,10 @@ const Main = props => {
   return (
     <main>
       {displayDetail ? (
-        <div className="cart">
-          <h2>{clickedStoreItem.name}</h2>
-          <p>{clickedStoreItem.facts}</p>
-          <button onClick={() => isDetailDisplayed(false, '')}>Back</button>
-        </div>
+        <FunFacts
+          isDetailDisplayed={isDetailDisplayed}
+          clickedStoreItem={clickedStoreItem}
+        />
       ) : (
         <div className="cart">
           <h2>Your Cart</h2>
