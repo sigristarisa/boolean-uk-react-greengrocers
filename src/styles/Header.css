@@ -38,6 +38,21 @@
   place-items: center;
 }
 
+.store-button-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4px;
+}
+
+.store-button-wrapper > button {
+  width: 32px;
+  height: 32px;
+}
+
+.file-icon {
+  object-fit: cover;
+}
+
 @media only screen and (max-width: 600px) {
   .store--item-list {
     grid-template-columns: repeat(3, 125px);

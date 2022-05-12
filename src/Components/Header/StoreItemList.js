@@ -3,6 +3,7 @@ import StoreItem from './StoreItem'
 const StoreItemList = props => {
   const storeItems = props.storeItems
   const addItemToCart = props.addItemToCart
+  const isDetailDisplayed = props.isDetailDisplayed
 
   return (
     <ul className="item-list store--item-list">
@@ -11,6 +12,7 @@ const StoreItemList = props => {
           key={index}
           storeItem={storeItem}
           addItemToCart={addItemToCart}
+          isDetailDisplayed={isDetailDisplayed}
         />
       ))}
     </ul>

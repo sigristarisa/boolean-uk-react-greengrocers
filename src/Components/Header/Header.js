@@ -8,6 +8,7 @@ const Header = props => {
   const addItemToCart = props.addItemToCart
   const filterStoreItems = props.filterStoreItems
   const sortStoreItems = props.sortStoreItems
+  const isDetailDisplayed = props.isDetailDisplayed
 
   return (
     <header id="store">
@@ -16,7 +17,11 @@ const Header = props => {
         <FilterBy filterStoreItems={filterStoreItems} />
         <SortBy sortStoreItems={sortStoreItems} />
       </div>
-      <StoreItemList storeItems={storeItems} addItemToCart={addItemToCart} />
+      <StoreItemList
+        storeItems={storeItems}
+        addItemToCart={addItemToCart}
+        isDetailDisplayed={isDetailDisplayed}
+      />
     </header>
   )
 }

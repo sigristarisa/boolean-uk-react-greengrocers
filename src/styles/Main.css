@@ -1,4 +1,4 @@
-#cart {
+.cart {
   height: 60vh;
   padding: 1rem;
 
@@ -10,7 +10,7 @@
   border-top: 2px solid #00675b;
 }
 
-#cart h2 {
+.cart h2 {
   margin-bottom: 0;
   text-align: center;
 }

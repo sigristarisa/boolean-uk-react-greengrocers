@@ -9,6 +9,8 @@ import initialStoreItems from './store-items'
 const App = () => {
   const [cart, setCart] = useState([])
   const [storeItems, setStoreItems] = useState(initialStoreItems)
+  const [displayDetail, setDisplayDetail] = useState(false)
+  const [clickedStoreItem, setClickedStoreItem] = useState('')
 
   const findItemById = storeItem =>
     cart.find(cartItem => cartItem.id === storeItem.id)
@@ -75,6 +77,11 @@ const App = () => {
     setStoreItems(copiedStoreItems)
   }
 
+  const isDetailDisplayed = (boolean, storeItem) => {
+    setDisplayDetail(boolean)
+    setClickedStoreItem(storeItem)
+  }
+
   return (
     <div className="app">
       <Header
@@ -82,12 +89,16 @@ const App = () => {
         addItemToCart={addItemToCart}
         filterStoreItems={filterStoreItems}
         sortStoreItems={sortStoreItems}
+        isDetailDisplayed={isDetailDisplayed}
       />
       <Main
         cart={cart}
         incrementQuantity={incrementQuantity}
         decrementQuantity={decrementQuantity}
         getTotal={getTotal}
+        displayDetail={displayDetail}
+        isDetailDisplayed={isDetailDisplayed}
+        clickedStoreItem={clickedStoreItem}
       />
       <Footer />
     </div>
